@@ -1,6 +1,6 @@
+import Head from "next/head";
 import { GetServerSideProps } from "next"
 import { getSession } from "next-auth/client"
-import Head from "next/head";
 import { RichText } from "prismic-dom";
 
 import { getPrismicClient } from "../../services/prismic";
@@ -34,7 +34,7 @@ export default function Post({ post }: PostProps) {
             {post.updatedAt}
           </time>
           <div 
-          className={styles.postContainer}
+          className={styles.postContent}
           dangerouslySetInnerHTML={{ __html: post.content }} />
         </article>
       </main>
@@ -46,10 +46,10 @@ export const getServerSideProps: GetServerSideProps = async ({ req, params }) =>
   const session = await getSession({ req });
   const { slug } = params;
 
-  if (!session.activeSubscription) {
+  if (!session?.activeSubscription) {
     return {
       redirect: {
-        destination: "/",
+        destination: `/posts/preview/${slug}`,
         permanent: false,
       }
     }
