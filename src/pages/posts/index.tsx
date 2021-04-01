@@ -1,6 +1,6 @@
-import { GetStaticProps } from "next";
 import Head from "next/head";
 import Prismic from "@prismicio/client";
+import { GetStaticProps } from "next";
 import { RichText } from "prismic-dom";
 
 import { getPrismicClient } from "../../services/prismic";
@@ -77,6 +77,7 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       posts
-    }
+    },
+    revalidate: 60 * 30, // 30 minutes
   }
 }
