@@ -1,6 +1,6 @@
 # Ignews
 
-Desing in [here](https://www.figma.com/file/Zuf1IOEzWyDKxfEgWE4Mfj/ig.news?node-id=1%3A2)
+Design in [here](https://www.figma.com/file/Zuf1IOEzWyDKxfEgWE4Mfj/ig.news?node-id=1%3A2)
 
 ## Getting Started
 
