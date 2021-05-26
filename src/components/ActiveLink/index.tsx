@@ -1,5 +1,5 @@
 import Link, { LinkProps } from "next/link";
-import { useRouter } from "next/dist/client/router";
+import { useRouter } from "next/router";
 import { ReactElement, cloneElement } from "react";
 
 interface ActiveProps extends LinkProps {
@@ -7,18 +7,20 @@ interface ActiveProps extends LinkProps {
   activeClassName: string;
 }
 
-export function ActiveLink({ children, activeClassName, ...rest }: ActiveProps) {
+export function ActiveLink({
+  children,
+  activeClassName,
+  ...rest
+}: ActiveProps) {
   const { asPath } = useRouter();
 
-  const className = asPath === rest.href
-    ? activeClassName
-    : "";
+  const className = asPath === rest.href ? activeClassName : "";
 
   return (
     <Link {...rest}>
-      { cloneElement(children, {
+      {cloneElement(children, {
         className,
-      }) }
+      })}
     </Link>
-  )  
+  );
 }
