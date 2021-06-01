@@ -4,11 +4,11 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { useSession } from "next-auth/client";
 import { RichText } from "prismic-dom";
 import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 import { getPrismicClient } from "../../../services/prismic";
 
 import styles from "../post.module.scss";
-import { useRouter } from "next/dist/client/router";
 
 interface PostPreviewProps {
   post: {
