@@ -1,5 +1,4 @@
 import { query as q } from "faunadb";
-import { create } from "node:domain";
 
 import { fauna } from "../../../services/fauna";
 import { stripe } from "../../../services/stripe";

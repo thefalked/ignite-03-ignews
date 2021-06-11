@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { GetServerSideProps } from "next";
+import { GetServerSideProps, GetServerSidePropsContext } from "next";
 import { getSession } from "next-auth/client";
 import { RichText } from "prismic-dom";
 
@@ -41,7 +41,7 @@ export const getServerSideProps: GetServerSideProps = async ({
   req,
   params,
 }) => {
-  const session = await getSession({ req });
+  const session = (await getSession({ req })) as any;
   const { slug } = params;
 
   if (!session?.activeSubscription) {

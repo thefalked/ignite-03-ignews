@@ -20,7 +20,7 @@ interface PostPreviewProps {
 }
 
 export default function PostPreview({ post }: PostPreviewProps) {
-  const [session] = useSession();
+  const [session] = useSession() as any;
   const router = useRouter();
 
   useEffect(() => {
@@ -46,7 +46,7 @@ export default function PostPreview({ post }: PostPreviewProps) {
 
           <div className={styles.continueReading}>
             Wanna continue reading?
-            <Link href="">
+            <Link href="/">
               <a>
                 Subscribe Now
                 <img src="/images/hug.svg" alt="Hug Emogi" />
